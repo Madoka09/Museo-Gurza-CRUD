@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INDEX LOGIN</title>
+    <link rel="stylesheet" href="../css/uikit.min.css">
+    <link rel="stylesheet" href="../css/custom.css">
+</head>
+<body>
+    <div class="uk-navbar-container" id="start"uk-navbar>
+        <div class="uk-navbar-left">
+        <a class="uk-navbar-item uk-logo">INICIAR SESIÓN</a>
+        </div>
+    </div>
+
+    <div class="uk-container">
+        <form action="checklogon.php" method="POST" enctype="multipart/form-data">
+            <fieldset class="uk-fieldset">
+                <table class="uk-table uk-table-divider">
+                    <thead>
+                        <tr>
+                            <th>Nombre de Usuario</th>
+                            <th>Password</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <div uk-form-custom>
+                            <td><input class="uk-input" type="text" name="username" id="username" required></td>
+                        </div>
+                            <td><input class="uk-input" type="password" name="password" id="password" required></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </fieldset>
+            <button class="uk-button uk-button-primary" type="submit" name="submit" value="LOGIN">Guardar Cambios</button>
+        </form>
+    </div>
+
+
+
+
+    <script src="../js/ui.js"></script>
+    <script src="../js/uikit.js"></script>
+    <script src="../js/uikit-icons.js"></script>
+</body>
+</html>

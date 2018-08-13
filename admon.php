@@ -1,3 +1,23 @@
+<?php 
+session_start();
+
+if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true){
+} else {
+    echo "FATAL, NECESITA TENER UNA SESIÓN INICIADA<br>";
+    echo "<br><a href='phpLogin/login.html'>Login</a>";
+    exit;
+}
+
+$now = time();
+
+if($now > $_SESSION['expire']){
+    session_destroy();
+
+    echo "Sesion finalizada ue :3, <a href='login.html'>Debe de hacer login ue</a>";
+    exit;
+}
+?>
+
 <?php require_once 'dbConfig.php';
 define ('SITE_ROOT', realpath(dirname('C:/AppServ/www/Gurza-Current-php/img/resources/x')));
 ?>
@@ -101,7 +121,11 @@ define ('SITE_ROOT', realpath(dirname('C:/AppServ/www/Gurza-Current-php/img/reso
         <a class="uk-button uk-button-primary" href="create_img.php">Subir Imagen</a>
         <br>
         <br>
-
+        <br>
+        <hr class="uk-nav-divider">
+        <a class="uk-button uk-button-danger" href="phpLogin/logout.php">Salir</a>
+        <br>
+        <br>
     </div>
 
 

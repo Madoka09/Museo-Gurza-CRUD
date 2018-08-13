@@ -39,7 +39,7 @@
                         <div uk-form-custom>
                             <td><input type="file" name="file_name" id="file_name" ></td>
                         </div>
-                            <td><input class="uk-input" type="text" name="galeria" placeholder="Identificador de la Galeria"></td>
+                            <td><input class="uk-input" type="text" name="galeria" placeholder="Identificador de la Galeria" id="galeria"></td>
                         </tr>
                     </tbody>
                 </table>
