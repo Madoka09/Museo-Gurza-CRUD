@@ -7,8 +7,7 @@ if($_POST) {
  
     $sql = "DELETE FROM expo WHERE id = {$id}";
     if($db->query($sql) === TRUE) {
-        echo "<p>DATOS ELIMINADOS</p>";
-        echo "<a href='../admon.php'><button type='button'>VOLVER!</button></a>";
+        header('Location: http://localhost/Gurza-Current-php/admon.php');
     } else {
         echo "FATAL, MATANDO VACAS... " . $db->error;
     }

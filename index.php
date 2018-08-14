@@ -59,19 +59,27 @@
                 <h2>Palacio de los Gurza</h2>
             </div>
             <div class="uk-position-relative uk-visible-toggle uk-light" uk-slideshow="animation: push; autoplay: true">
+            
+            <?php
+                    include 'dbConfig.php';
+                    //Obtener imagenes de la base de datos
+                    $query_slide = $db->query("SELECT * FROM slideshow");
+                    if ($query_slide->num_rows > 0) {
+                        while ($row = $query_slide->fetch_assoc()) {
+                            $slide_element = $row['slide_img'];
+                ?>    
                 <ul class="uk-slideshow-items">
                     <li>
-                        <img src="img/slide_1.jpg" alt="" uk-cover>
-                    </li>
-                    <li>
-                        <img src="img/slide_2.jpg" alt="" uk-cover>
+                        <img src="<?php echo $slide_element; ?>" uk-cover>
                     </li>
                 </ul>
-
+                
                 <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slideshow-item="previous"></a>
                 <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slideshow-item="next"></a>
-
+                
             </div>
+            <?php } ?>
+            <?php } ?>
 
             <!--MODAL CONTACTO-->
             <div id="modal-close-default" uk-modal>
@@ -163,7 +171,6 @@
             <ul class="content" uk-accordion>
             <?php
             include 'dbConfig.php';
-                //Obtener imagenes de la base de datos
             $query = $db->query("SELECT * FROM expo");
             if ($query->num_rows > 0) {
                 while ($row = $query->fetch_assoc()) {

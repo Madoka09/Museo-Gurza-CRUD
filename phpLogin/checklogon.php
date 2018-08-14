@@ -23,10 +23,9 @@ if($result->num_rows > 0){
         $_SESSION['start'] = time();
         $_SESSION['expire'] = $_SESSION['start'] + (5 * 60);
 
-        header('Location: http://localhost/Gurza-Current-php/admon.php');;
+        header('Location: http://localhost/Gurza-Current-php/admon.php');
     }else{
-        echo "Nombre de usuario o password incorrecto :3";
-        echo "<br><a href='login.html'>Intente de nuevo :3</a>";
+        header('Location: http://localhost/Gurza-Current-php/phpLogin/error.php');
     }
 mysqli_close($db);
 ?>

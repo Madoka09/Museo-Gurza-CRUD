@@ -14,8 +14,7 @@ if($_POST){
 
     $sql = "INSERT INTO images (file_name, galeria) VALUES ('$database_reference_img', '$galeria')";
     if($db->query($sql) === TRUE){
-        echo "<p>ELEMENTOS INSERTADOS CORRECTAMENTE!</p>";
-        echo "<a href='../admon.php'><button type='button'>Volver!</button></a>";
+        header('Location: http://localhost/Gurza-Current-php/admon.php');
     } else {
         echo "FATAL, MATANDO VACAS...". $sql.' '.$db->error;
     }
@@ -54,7 +53,7 @@ if ($uploadOk == 0) {
 // Si todo OK, subir plox
 } else {
     if (move_uploaded_file($_FILES["file_name"]["tmp_name"], $target_file)) {
-        echo "El Archivo ". basename( $_FILES["file_name"]["name"]). " ha sido subido.";
+        header('Location: http://localhost/Gurza-Current-php/admon.php');
     } else {
         echo "FATAL: Ha ocurrido un erro subiendo el archivo";
     }

@@ -9,8 +9,7 @@ if($_POST){
 
     $sql = "INSERT INTO expo (nombre_expo, descripcion_expo, galeria) VALUES ('$nombre_expo', '$descripcion_expo', '$galeria')";
     if($db->query($sql) === TRUE){
-        echo "<p>ELEMENTOS INSERTADOS CORRECTAMENTE!</p>";
-        echo "<a href='../admon.php'><button type='button'>Volver!</button></a>";
+        header('Location: http://localhost/Gurza-Current-php/admon.php');
     } else {
         echo "FATAL, MATANDO VACAS...". $sql.' '.$db->error;
     }

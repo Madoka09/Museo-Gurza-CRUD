@@ -3,8 +3,7 @@ session_start();
 
 if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true){
 } else {
-    echo "FATAL, NECESITA TENER UNA SESIÓN INICIADA<br>";
-    echo "<br><a href='phpLogin/login.html'>Login</a>";
+    header('Location: http://localhost/Gurza-Current-php/phpLogin/error.php');
     exit;
 }
 
@@ -13,7 +12,7 @@ $now = time();
 if($now > $_SESSION['expire']){
     session_destroy();
 
-    echo "Sesion finalizada ue :3, <a href='login.html'>Debe de hacer login ue</a>";
+    header('Location: http://localhost/Gurza-Current-php/phpLogin/error_expired.php');
     exit;
 }
 ?>

@@ -11,8 +11,7 @@ if ($_POST){
 
 $sql = "UPDATE expo SET nombre_expo = '$nombre_expo', descripcion_expo = '$descripcion_expo', galeria = '$galeria' WHERE id = {$id}";
     if($db->query($sql) === TRUE){
-        echo "<p>ACTUALIZADO CORRECTAMENTE</p>";
-        echo "<a href='../admon.php'><button type='button'>Volver!</button></a>";
+        header('Location: http://localhost/Gurza-Current-php/admon.php');
     }
 } else {
     echo "FATAL, MATANDO VACAS... ".$id->error;

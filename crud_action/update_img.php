@@ -10,8 +10,7 @@ if ($_POST){
 
 $sql = "UPDATE images SET file_name = '$file_name', galeria = '$galeria' WHERE id_img = {$id_img}";
     if($db->query($sql) === TRUE){
-        echo "<p>ACTUALIZADO CORRECTAMENTE</p>";
-        echo "<a href='../admon.php'><button type='button'>Volver!</button></a>";
+        header('Location: http://localhost/Gurza-Current-php/admon.php');
     }
 } else {
     echo "FATAL, MATANDO VACAS... ".$id->error;
