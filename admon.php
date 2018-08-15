@@ -83,7 +83,82 @@ define ('SITE_ROOT', realpath(dirname('C:/AppServ/www/Gurza-Current-php/img/reso
         <br>
         <br>
     </div>
+    <hr class="uk-nav-divider">
+    <br>
 
+    <div class="uk-container">
+    <h2 class="uk-text-muted">Administrador de Slideshow</h2>
+    <table class="uk-table uk-table-striped">
+            <thead>
+                <tr>
+                    <th>Nombre de la Imagen</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                    $sql3 = "SELECT * FROM slideshow";
+                    $query_admon_slide = $db->query($sql3);
+
+                if($query_admon_slide->num_rows > 0){
+                    while($row_slide = $query_admon_slide->fetch_assoc()){
+                        echo "<tr>
+                            <td>".$row_slide['slide_img']."</td>
+                            <td>
+                                <a href='remove_slider.php?id=".$row_slide['id']."''><button type='button'>Remover</button></a>
+                            </td>
+                            </tr>";
+                    }
+                } else {
+                    echo "<tr><td colspan='5'><center>Sin informacion disponible</center></td></tr>";
+                }
+                ?>
+            </tbody>
+        </table>
+        <a class="uk-button uk-button-primary" href="create_slider.php">Subir Imagen al Slideshow</a>
+        <br>
+        <br>
+        <br>
+    </div>
+    <hr class="uk-nav-divider">
+    <br>
+
+    <div class="uk-container">
+    <h2 class="uk-text-muted">Administrador de Videos</h2>
+    <table class="uk-table uk-table-striped">
+            <thead>
+                <tr>
+                    <th>Link del Video</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                    $sql4 = "SELECT * FROM videos";
+                    $query_videos = $db->query($sql4);
+
+                if($query_videos->num_rows > 0){
+                    while($row_vid = $query_videos->fetch_assoc()){
+                        echo "<tr>
+                            <td>".$row_vid['vid_link']."</td>
+                            <td>
+                                <a href='edit_video.php?id=".$row_vid['id']."'><button type='button'>Editar</button></a>
+                                <a href='remove_video.php?id=".$row_vid['id']."''><button type='button'>Remover</button></a>
+                            </td>
+                            </tr>";
+                    }
+                } else {
+                    echo "<tr><td colspan='5'><center>Sin informacion disponible</center></td></tr>";
+                }
+                ?>
+            </tbody>
+        </table>
+        <a class="uk-button uk-button-primary" href="create_video.php">Subir Video al Sitio</a>
+        <br>
+        <br>
+        <br>
+    </div>
+    <hr class="uk-nav-divider">
     <br>
 
     <div class="uk-container">
@@ -126,6 +201,10 @@ define ('SITE_ROOT', realpath(dirname('C:/AppServ/www/Gurza-Current-php/img/reso
         <br>
         <br>
     </div>
+
+    <br>
+
+    
 
 
 </body>

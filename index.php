@@ -58,8 +58,9 @@
                 <h1 id="#top">Museo de Historia y Arte</h1>
                 <h2>Palacio de los Gurza</h2>
             </div>
-            <div class="uk-position-relative uk-visible-toggle uk-light" uk-slideshow="animation: push; autoplay: true">
             
+            <div class="uk-position-relative uk-visible-toggle uk-light" uk-slideshow="animation: push; autoplay: true">    
+            <ul class="uk-slideshow-items">
             <?php
                     include 'dbConfig.php';
                     //Obtener imagenes de la base de datos
@@ -67,19 +68,20 @@
                     if ($query_slide->num_rows > 0) {
                         while ($row = $query_slide->fetch_assoc()) {
                             $slide_element = $row['slide_img'];
-                ?>    
-                <ul class="uk-slideshow-items">
+                ?>
+                
                     <li>
                         <img src="<?php echo $slide_element; ?>" uk-cover>
                     </li>
+                    <?php } ?>
+            <?php } ?>
                 </ul>
                 
                 <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slideshow-item="previous"></a>
                 <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slideshow-item="next"></a>
                 
             </div>
-            <?php } ?>
-            <?php } ?>
+            
 
             <!--MODAL CONTACTO-->
             <div id="modal-close-default" uk-modal>
@@ -133,11 +135,24 @@
                         <button class="uk-modal-close-default" type="button" uk-close></button>
                         <h2 class="uk-modal-title uk-text-center">Videos</h2>
                         <hr class="uk-divider-icon">
+                        <div id="fb-root"></div>
                         <ul class="uk-thumbnav" uk-margin uk-lightbox>
-                            <li><a href="https://www.youtube.com/watch?v=YE7VzlLtp-4"><img id="boxy" src="http://img.youtube.com/vi/YE7VzlLtp-4/0.jpg" alt=""></a></li>
-                            <li><a href="https://www.youtube.com/watch?v=YE7VzlLtp-4"><img id="boxy" src="http://img.youtube.com/vi/YE7VzlLtp-4/0.jpg" alt=""></a></li>
-                            <li><a href="https://www.youtube.com/watch?v=YE7VzlLtp-4"><img id="boxy" src="http://img.youtube.com/vi/YE7VzlLtp-4/0.jpg" alt=""></a></li>
-                            <li><a href="https://www.youtube.com/watch?v=YE7VzlLtp-4"><img id="boxy" src="http://img.youtube.com/vi/YE7VzlLtp-4/0.jpg" alt=""></a></li>
+                        <?php
+                            include 'dbConfig.php';
+                            //Obtener imagenes de la base de datos
+                            $query_vid = $db->query("SELECT * FROM videos");
+                            if ($query_vid->num_rows > 0) {
+                                while ($row = $query_vid->fetch_assoc()) {
+                                    $vid_element = $row['vid_link'];
+                                    $exploded = explode("=", $vid_element);
+                                    $video_route = "http://img.youtube.com/vi/".$exploded[1]."/0.jpg";
+                            ?>
+
+                            <li><a href='<?php echo $vid_element;?>'><img id="boxy" src='<?php echo $video_route; ?>'></a></li>
+                        
+
+                            <?php } ?>
+                           <?php } ?>
                         </ul>
                     </div>
                 </div>
@@ -149,7 +164,7 @@
 
         <div class="content">
             <h2 class="content-subhead" uk-parallax="opacity: 0,1,1; x: -100,-100,0; viewport: 0.5">¿Qué es?</h2>
-            <iframe src="https://www.youtube.com/embed/96qDAyhLz4Q" width="560" height="315" frameborder="0" allowfullscreen uk-responsive uk-video uk-parallax="opacity: 0,1,1; x: -100,-100,0; viewport: 0.5"></iframe>
+            <iframe src="https://www.youtube.com/embed/96qDAyhLz4Q#t=10h" width="560" height="315" frameborder="0" allowfullscreen uk-responsive uk-video uk-parallax="opacity: 0,1,1; x: -100,-100,0; viewport: 0.5"></iframe>
         </div>
         <div class="uk-height-large uk-background-cover uk-overflow-hidden uk-light uk-flex uk-flex-top" style="background-image: url('img/parallax-bg-1.jpg');">
             <div class="uk-width-1-2@m uk-text-justify uk-margin-auto uk-margin-auto-vertical">
