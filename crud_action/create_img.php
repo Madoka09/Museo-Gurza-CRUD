@@ -1,4 +1,22 @@
 <?php 
+session_start();
+require_once 'dbConfig.php'; 
+if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true){
+} else {
+    header('Location: http://localhost/Gurza-Current-php/phpLogin/error.php');
+    exit;
+}
+
+$now = time();
+
+if($now > $_SESSION['expire']){
+    session_destroy();
+
+    header('Location: http://localhost/Gurza-Current-php/phpLogin/error_expired.php');
+    exit;
+}
+?>
+<?php 
 define ('SITE_ROOT', realpath(dirname('C:/AppServ/www/Gurza-Current-php/img/resources/x')));
 require_once 'dbConfig.php';
 
@@ -38,13 +56,12 @@ if (file_exists($target_file)) {
 }
 // Comprobar tamaño del archivo a subir
 if ($_FILES["file_name"]["size"] > 500000) {
-    echo "Sorry, your file is too large.";
+    echo "El tamaño de archivo es demasiado grande.";
     $uploadOk = 0;
 }
 // Permitir algunos formatos de archivo
-if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-&& $imageFileType != "gif" ) {
-    echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
+    echo "Solo los formatos JPG, JPEG y PNG son permitidos.";
     $uploadOk = 0;
 }
 // Comprobar la variable uploadOK para ver si es posible subirlo

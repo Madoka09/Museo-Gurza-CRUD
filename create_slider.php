@@ -47,13 +47,13 @@ if($now > $_SESSION['expire']){
                 <table class="uk-table uk-table-divider">
                     <thead>
                         <tr>
-                            <th>Archivo a Subir al Slideshow</th>
+                            <th>Archivo a Subir al Slideshow <a uk-tooltip="title: Formatos admitidos: JPG, JPEG y PNG" uk-icon="question"></a></th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                         <div uk-form-custom>
-                            <td><input type="file" name="slide_img" id="file_name" ></td>
+                            <td><input type="file" name="slide_img" id="file_name" > <a uk-tooltip="title: Tamaño maximo de archivo: 500kb" uk-icon="question"></a></td>
                         </div>
                         </tr>
                     </tbody>
@@ -63,4 +63,6 @@ if($now > $_SESSION['expire']){
             <a class="uk-button uk-button-default" href="admon.php">Volver a Inicio</a>
         </form>
     </div>
+    <script src="js/uikit.js"></script>
+    <script src="js/uikit-icons.js"></script>
 </body>

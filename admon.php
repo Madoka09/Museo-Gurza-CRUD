@@ -102,8 +102,9 @@ define ('SITE_ROOT', realpath(dirname('C:/AppServ/www/Gurza-Current-php/img/reso
 
                 if($query_admon_slide->num_rows > 0){
                     while($row_slide = $query_admon_slide->fetch_assoc()){
+                        $only_slide_name = explode("/", $row_slide['slide_img']);
                         echo "<tr>
-                            <td>".$row_slide['slide_img']."</td>
+                            <td>".$only_slide_name[2]."</td>
                             <td>
                                 <a href='remove_slider.php?id=".$row_slide['id']."''><button type='button'>Remover</button></a>
                             </td>
@@ -177,8 +178,9 @@ define ('SITE_ROOT', realpath(dirname('C:/AppServ/www/Gurza-Current-php/img/reso
 
                 if($query_admon_img->num_rows > 0){
                     while($row_img = $query_admon_img->fetch_assoc()){
+                        $only_image_name = explode("/", $row_img['file_name']);
                         echo "<tr>
-                            <td>".$row_img['file_name']."</td>
+                            <td>".$only_image_name[2]."</td>
                             <td>".$row_img['galeria']."</td>
                             <td>
                                 <a href='edit_img.php?id_img=".$row_img['id_img']."'><button type='button'>Editar</button></a>

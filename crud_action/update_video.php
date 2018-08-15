@@ -1,4 +1,22 @@
 <?php 
+session_start();
+require_once 'dbConfig.php'; 
+if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true){
+} else {
+    header('Location: http://localhost/Gurza-Current-php/phpLogin/error.php');
+    exit;
+}
+
+$now = time();
+
+if($now > $_SESSION['expire']){
+    session_destroy();
+
+    header('Location: http://localhost/Gurza-Current-php/phpLogin/error_expired.php');
+    exit;
+}
+?>
+<?php 
 
 require_once 'dbConfig.php';
 

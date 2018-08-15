@@ -21,7 +21,7 @@ if($result->num_rows > 0){
         $_SESSION['loggedin'] = true;
         $_SESSION['username'] = $username;
         $_SESSION['start'] = time();
-        $_SESSION['expire'] = $_SESSION['start'] + (5 * 60);
+        $_SESSION['expire'] = $_SESSION['start'] + (7 * 60);
 
         header('Location: http://localhost/Gurza-Current-php/admon.php');
     }else{

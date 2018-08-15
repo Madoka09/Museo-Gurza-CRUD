@@ -14,6 +14,8 @@
 </head>
 
 <body>
+    <script src="js/uikit.js"></script>
+    <script src="js/uikit-icons.js"></script>
 
     <div id="layout">
         <!-- Menu toggle -->
@@ -40,11 +42,11 @@
                     <li class="pure-menu-item">
                         <a href="#social" uk-toggle class="pure-menu-link">Redes Sociales</a>
                     </li>
-                    
+                    <!--
                     <li class="pure-menu-item">
                         <a href="#" class="pure-menu-link">Libreria</a>
                     </li>                    
-
+                    -->
                     <li class="pure-menu-item menu-item-divided pure-menu-selected">
                         <a href="#contact" uk-toggle class="pure-menu-link">Encuéntranos</a>
                     </li>
@@ -123,7 +125,11 @@
                         <button class="uk-modal-close-default" type="button" uk-close></button>
                         <h2 class="uk-modal-title uk-text-center">Nuestras Redes Sociales</h2>
                         <hr class="uk-divider-icon">
-                        <a href="https://www.facebook.com/palacio.delosgurza/"><img src="img/fb-logo.png" style="width: 8vh; height: 8vh;"></a>
+                        <div class="uk-text-center">
+                        <a href="https://www.facebook.com/palacio.delosgurza/" class="uk-icon-button" uk-icon="facebook"></a>
+                        <a href="https://twitter.com/museogurza" class="uk-icon-button" uk-icon="twitter"></a>
+                        <a href="https://www.instagram.com/museo_gurza/" class="uk-icon-button" uk-icon="instagram"></a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -197,7 +203,7 @@
                     
                 <li>
                     <a class="uk-accordion-title"><?php echo $nombre_expo; ?></a>
-                    <div class="uk-accordion-content"><?php echo $descripcion_expo; ?>
+                    <div class="uk-accordion-content uk-text-justify"><?php echo $descripcion_expo; ?>
                     <hr clas="uk-nav-divider">
                     <div class="uk-column-1-4@m" uk-lightbox>
                             <?php
